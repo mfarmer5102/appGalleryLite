@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/appGalleryLite/static/js/main.f5a79a37.chunk.js",
+    "main.js.map": "/appGalleryLite/static/js/main.f5a79a37.chunk.js.map",
+    "runtime-main.js": "/appGalleryLite/static/js/runtime-main.6e3e217c.js",
+    "runtime-main.js.map": "/appGalleryLite/static/js/runtime-main.6e3e217c.js.map",
+    "static/js/2.52511dd6.chunk.js": "/appGalleryLite/static/js/2.52511dd6.chunk.js",
+    "static/js/2.52511dd6.chunk.js.map": "/appGalleryLite/static/js/2.52511dd6.chunk.js.map",
+    "index.html": "/appGalleryLite/index.html",
+    "precache-manifest.10f278691afc4111800dbb31ef85e183.js": "/appGalleryLite/precache-manifest.10f278691afc4111800dbb31ef85e183.js",
+    "service-worker.js": "/appGalleryLite/service-worker.js",
+    "static/js/2.52511dd6.chunk.js.LICENSE.txt": "/appGalleryLite/static/js/2.52511dd6.chunk.js.LICENSE.txt",
+    "static/media/banner.jpg": "/appGalleryLite/static/media/banner.1321cdd6.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6e3e217c.js",
+    "static/js/2.52511dd6.chunk.js",
+    "static/js/main.f5a79a37.chunk.js"
+  ]
+}
