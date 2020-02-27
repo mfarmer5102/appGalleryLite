@@ -38,7 +38,8 @@ class Main extends Component {
   }
 
   grabKeywordsFromDatabase() {
-    let url = "http://localhost:9483/AppGallery/api/keywords";
+    let root = process.env.NODE_ENV === 'development' ? "http://localhost:9483" : "http://mfarmer5102-grandcentralapi.herokuapp.com/";
+    let url = root + "/AppGalleryLite/api/keywords";
     fetch(url)
       .then(response => response.json())
       .then(response => {

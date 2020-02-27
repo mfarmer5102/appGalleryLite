@@ -18,7 +18,8 @@ class ApplicationsContainer extends Component {
   }
 
   handleSearch() {
-    let url = "http://localhost:9483/AppGallery/api/applications";
+    let root = process.env.NODE_ENV === 'development' ? "http://localhost:9483" : "http://mfarmer5102-grandcentralapi.herokuapp.com/";
+    let url = root + "/AppGalleryLite/api/applications";
     fetch(url)
       .then(response => response.json())
       .then(response => {
