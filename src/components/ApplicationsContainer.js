@@ -9,11 +9,11 @@ class ApplicationsContainer extends Component {
     };
   }
 
-  componentDidUpdate() {
-    this.handleSearch();
-  }
+  // componentDidUpdate() {
+  //   this.handleSearch();
+  // }
 
-  componentWillMount() {
+  componentDidMount() {
     this.handleSearch();
   }
 
