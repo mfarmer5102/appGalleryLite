@@ -28,15 +28,21 @@ class AppCard extends Component {
   }
 
   render() {
+    //Place a check mark if this app is actively supported
+    let activelySupportedIndicator = this.props.data.isActivelySupported ? (
+      <i title='Actively Supported' className="float-right fas fa-check-double fa-lg text-success p-1"></i>
+    ) : (
+      ""
+    );
     //Place a star if this app is featured
     let featuredIndicator = this.props.data.isFeatured ? (
-      <i className="float-right fas fa-star fa-lg text-warning p-1"></i>
+      <i title='Featured' className="float-right fas fa-star fa-lg text-warning p-1"></i>
     ) : (
       ""
     );
     //Place a team icon if this app is a collaboration
     let collaborationIndicator = this.props.data.isCollaboration ? (
-      <i className="float-right fas fa-users fa-lg text-secondary p-1"></i>
+      <i title='Collaboration' className="float-right fas fa-users fa-lg text-secondary p-1"></i>
     ) : (
       ""
     );
@@ -67,6 +73,7 @@ class AppCard extends Component {
         <div className="card shadow mb-3">
           <div className="card-header text-left">
             <h5 className="float-left">{this.props.data.title}</h5>
+            {activelySupportedIndicator}
             {featuredIndicator}
             {collaborationIndicator}
           </div>
