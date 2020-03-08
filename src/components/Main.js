@@ -22,6 +22,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      responseReceivedFromApi: false,
       totalClicks: 0,
       subComponentVisibilityToggler: {
         Applications: true
@@ -45,7 +46,8 @@ class Main extends Component {
       .then(response => {
         console.log(response);
         this.setState({
-          keywordsArray: response
+          keywordsArray: response,
+          responseReceivedFromApi: true
         });
       });
   }
@@ -88,55 +90,76 @@ class Main extends Component {
       item => item.props.type === "other"
     );
 
-    return (
-      <main className="container-fluid">
-        <div className="row">
-          {/* Column */}
-          <section className="col-md-9 col-sm-12 p-3">
-            <ApplicationsContainer
-              activeKeywords={this.state.activeKeywords}
-              visibility={this.state.subComponentVisibilityToggler.Applications}
-            ></ApplicationsContainer>
-          </section>
-          {/* Column */}
-          <section
-            className="col-md-3 bg-light text-dark shadow"
-            style={noPadding}
-          >
-            <nav style={sidepanelStyle}>
-              <div>
-                <img src={Banner} style={bannerStyle}></img>
-              </div>
-              <div className="p-4">
-                <div className="mb-4">
-                  Languages
-                  <hr></hr>
-                  {languages}
-                </div>
+    if (this.state.responseReceivedFromApi) {
+        return (
+          <main className="container-fluid">
+            <div className="row">
+              {/* Column */}
+              <section className="col-md-9 col-sm-12 p-3">
+                <ApplicationsContainer
+                  activeKeywords={this.state.activeKeywords}
+                  visibility={this.state.subComponentVisibilityToggler.Applications}
+                ></ApplicationsContainer>
+              </section>
+              {/* Column */}
+              <section
+                className="col-md-3 bg-light text-dark shadow"
+                style={noPadding}
+              >
+                <nav style={sidepanelStyle}>
+                  <div>
+                    <img src={Banner} style={bannerStyle}></img>
+                  </div>
+                  <div className="p-4">
+                    <div className="mb-4">
+                      Languages
+                      <hr></hr>
+                      {languages}
+                    </div>
 
-                <div className="mb-4">
-                  Frameworks
-                  <hr></hr>
-                  {frameworks}
-                </div>
+                    <div className="mb-4">
+                      Frameworks
+                      <hr></hr>
+                      {frameworks}
+                    </div>
 
-                <div className="mb-4">
-                  Databases
-                  <hr></hr>
-                  {databases}
-                </div>
+                    <div className="mb-4">
+                      Databases
+                      <hr></hr>
+                      {databases}
+                    </div>
 
-                <div className="mb-4">
-                  Other Technologies
-                  <hr></hr>
-                  {otherTechnologies}
+                    <div className="mb-4">
+                      Other Technologies
+                      <hr></hr>
+                      {otherTechnologies}
+                    </div>
+                  </div>
+                </nav>
+              </section>
+            </div>
+          </main>
+        )
+      }
+      else {
+        return (
+            <div className='position-fixed'>
+                <div id='pseudoCover'>
+                    <section className='opacity-1'>
+                        <div class='row'>
+                          <div id='pseudoCoverSpinnger' class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                        <br/>
+                        <div class='row text-center'>
+                          <div class='text-light'>Loading application gallery. This may take a few seconds.</div>
+                        </div>
+                    </section>
                 </div>
-              </div>
-            </nav>
-          </section>
-        </div>
-      </main>
-    );
+            </div>
+        )
+      }
   }
 }
 
