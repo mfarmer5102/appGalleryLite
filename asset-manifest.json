@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/appGalleryLite/static/js/main.c0f15978.chunk.js",
-    "main.js.map": "/appGalleryLite/static/js/main.c0f15978.chunk.js.map",
+    "main.js": "/appGalleryLite/static/js/main.af5c6921.chunk.js",
+    "main.js.map": "/appGalleryLite/static/js/main.af5c6921.chunk.js.map",
     "runtime-main.js": "/appGalleryLite/static/js/runtime-main.6e3e217c.js",
     "runtime-main.js.map": "/appGalleryLite/static/js/runtime-main.6e3e217c.js.map",
     "static/js/2.52511dd6.chunk.js": "/appGalleryLite/static/js/2.52511dd6.chunk.js",
     "static/js/2.52511dd6.chunk.js.map": "/appGalleryLite/static/js/2.52511dd6.chunk.js.map",
     "index.html": "/appGalleryLite/index.html",
-    "precache-manifest.f22d1e3a1c67cbce302a3b13c2153abb.js": "/appGalleryLite/precache-manifest.f22d1e3a1c67cbce302a3b13c2153abb.js",
+    "precache-manifest.ff2e6c23bdb8c98a57e72ec8b593d0ab.js": "/appGalleryLite/precache-manifest.ff2e6c23bdb8c98a57e72ec8b593d0ab.js",
     "service-worker.js": "/appGalleryLite/service-worker.js",
     "static/js/2.52511dd6.chunk.js.LICENSE.txt": "/appGalleryLite/static/js/2.52511dd6.chunk.js.LICENSE.txt",
     "static/media/banner.jpg": "/appGalleryLite/static/media/banner.1321cdd6.jpg"
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.6e3e217c.js",
     "static/js/2.52511dd6.chunk.js",
-    "static/js/main.c0f15978.chunk.js"
+    "static/js/main.af5c6921.chunk.js"
   ]
 }
