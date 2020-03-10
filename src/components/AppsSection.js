@@ -7,8 +7,8 @@ class AppsSection extends Component {
   }
 
   render() {
-    let cardsArray = this.props.data.map(item => (
-      <AppCard key={item._id} data={item} />
+    let cardsArray = this.props.data.map((item, i) => (
+      <AppCard key={'app' + i} data={item} />
     ));
 
     let resultDisplay = this.props.resultCount !== 1 ? `Displaying ${this.props.resultCount} applications.` : `Displaying ${this.props.resultCount} application.`

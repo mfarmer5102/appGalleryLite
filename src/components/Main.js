@@ -39,7 +39,7 @@ class Main extends Component {
   }
 
   grabKeywordsFromDatabase() {
-    let root = process.env.NODE_ENV === 'development' ? "http://localhost:9483" : "https://mfarmer5102-api-flask.herokuapp.com";
+    let root = process.env.NODE_ENV === 'development' ? "http://localhost:9483" : "https://central-api-flask-cm6ud432ka-uc.a.run.app";
     let url = root + "/AppGalleryLite/api/keywords";
     fetch(url)
       .then(response => response.json())
@@ -73,7 +73,7 @@ class Main extends Component {
   render() {
     let allKeywords = this.state.keywordsArray.map((keyword, i) => (
       <Keyword
-        key={i}
+        key={'keyword' + i}
         keywordName={keyword.name}
         type={keyword.type}
         passKeywordNameToParent={this.pullInKeywordName}
