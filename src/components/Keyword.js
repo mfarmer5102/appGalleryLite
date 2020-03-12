@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 
-var activeKeywordStyle = "badge badge-pill badge-info m-1";
-var inactiveKeywordStyle = "badge badge-pill badge-light border border-dark m-1";
+var activeKeywordStyle = "badge badge-info m-1 d-block text-left";
+var inactiveKeywordStyle = "badge badge-light m-1 d-block text-left";
+var universalKeywordStyle = {
+    cursor: "pointer"
+}
 
 class Keyword extends Component {
   constructor(props) {
@@ -24,7 +27,11 @@ class Keyword extends Component {
 
   render() {
     return (
-      <span className={this.state.activeClass} onClick={this.toggleKeyword}>
+      <span 
+        className={this.state.activeClass} 
+        style={universalKeywordStyle}
+        onClick={this.toggleKeyword}
+        >
         {this.props.keywordName || "Tech"}
       </span>
     );

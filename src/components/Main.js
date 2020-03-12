@@ -5,18 +5,26 @@ import Keyword from "./Keyword";
 import Banner from "./banner.jpg";
 
 var sidepanelStyle = {
-  position: "-webkit-sticky",
-  position: "sticky",
-  top: "0"
 };
 
-var noPadding = {
-  padding: "0px"
+var sectionLeft = {
+    padding: "0px",
+    overflow: "scroll",
+    maxHeight: "100vh"
 };
+
+var sectionRight = {
+    overflow: "scroll",
+    maxHeight: "100vh"
+}
 
 var bannerStyle = {
-  width: "100%"
+    width: "100%"
 };
+
+var maxHeight100 = {
+    maxHeight: '100%'
+}
 
 class Main extends Component {
   constructor(props) {
@@ -28,7 +36,13 @@ class Main extends Component {
         Applications: true
       },
       keywordsArray: [],
-      activeKeywords: []
+      activeKeywords: [],
+      activeProperties: {
+          isFeatured: true,
+          isCollaboration: false,
+          supportStatus: '',
+          applicationType: ''
+      }
     };
     this.grabKeywordsFromDatabase = this.grabKeywordsFromDatabase.bind(this);
     this.pullInKeywordName = this.pullInKeywordName.bind(this);
@@ -39,7 +53,7 @@ class Main extends Component {
   }
 
   grabKeywordsFromDatabase() {
-    let root = process.env.NODE_ENV === 'development' ? "http://localhost:9483" : "https://central-api-flask-cm6ud432ka-uc.a.run.app";
+    let root = "https://central-api-flask-cm6ud432ka-uc.a.run.app";
     let url = root + "/AppGalleryLite/api/keywords";
     fetch(url)
       .then(response => response.json())
@@ -82,35 +96,48 @@ class Main extends Component {
 
     //Define tag groups
     let languages = allKeywords.filter(item => item.props.type === "language");
-    let frameworks = allKeywords.filter(
-      item => item.props.type === "framework"
-    );
+    let deployments = allKeywords.filter(item => item.props.type === "deployment");
+    let libraries = allKeywords.filter(item => item.props.type === "library");
+    let frontEndFrameworks = allKeywords.filter(item => item.props.type === "front-end-framework");
+    let backEndFrameworks = allKeywords.filter(item => item.props.type === "back-end-framework");
     let databases = allKeywords.filter(item => item.props.type === "database");
-    let otherTechnologies = allKeywords.filter(
-      item => item.props.type === "other"
-    );
+    let orms = allKeywords.filter(item => item.props.type === "orm");
+    let otherTechnologies = allKeywords.filter(item => item.props.type === "other");
 
     if (this.state.responseReceivedFromApi) {
         return (
           <main className="container-fluid">
             <div className="row">
-              {/* Column */}
-              <section className="col-md-9 col-sm-12 p-3">
-                <ApplicationsContainer
-                  activeKeywords={this.state.activeKeywords}
-                  visibility={this.state.subComponentVisibilityToggler.Applications}
-                ></ApplicationsContainer>
-              </section>
+
               {/* Column */}
               <section
                 className="col-md-3 bg-light text-dark shadow"
-                style={noPadding}
+                style={sectionLeft}
               >
                 <nav style={sidepanelStyle}>
                   <div>
                     <img src={Banner} style={bannerStyle}></img>
                   </div>
                   <div className="p-4">
+
+                    {/* <div className="mb-4">
+                      Flags
+                      <hr></hr>
+                      {languages}
+                    </div>
+
+                    <div className="mb-4">
+                      Application Type
+                      <hr></hr>
+                      {languages}
+                    </div>
+
+                    <div className="mb-4">
+                      Support Status
+                      <hr></hr>
+                      {languages}
+                    </div> */}
+
                     <div className="mb-4">
                       Languages
                       <hr></hr>
@@ -118,9 +145,27 @@ class Main extends Component {
                     </div>
 
                     <div className="mb-4">
-                      Frameworks
+                      Deployments
                       <hr></hr>
-                      {frameworks}
+                      {deployments}
+                    </div>
+
+                    <div className="mb-4">
+                      Libraries
+                      <hr></hr>
+                      {libraries}
+                    </div>
+
+                    <div className="mb-4">
+                      Front-End Frameworks
+                      <hr></hr>
+                      {frontEndFrameworks}
+                    </div>
+
+                    <div className="mb-4">
+                      Back-End Frameworks
+                      <hr></hr>
+                      {backEndFrameworks}
                     </div>
 
                     <div className="mb-4">
@@ -130,13 +175,30 @@ class Main extends Component {
                     </div>
 
                     <div className="mb-4">
+                      ORMs
+                      <hr></hr>
+                      {orms}
+                    </div>
+
+                    <div className="mb-4">
                       Other Technologies
                       <hr></hr>
                       {otherTechnologies}
                     </div>
+
                   </div>
                 </nav>
               </section>
+              
+              {/* Column */}
+              <section className="col-md-9 col-sm-12 p-3" style={sectionRight}>
+                <ApplicationsContainer
+                  activeKeywords={this.state.activeKeywords}
+                  activeProperties={this.state.activeProperties}
+                  visibility={this.state.subComponentVisibilityToggler.Applications}
+                ></ApplicationsContainer>
+              </section>
+
             </div>
           </main>
         )
