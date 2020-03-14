@@ -36,6 +36,7 @@ class Main extends Component {
         Applications: true
       },
       keywordsArray: [],
+      simpleKeywordsArray: [],
       activeKeywords: [],
       activeProperties: {
           isFeatured: true,
@@ -58,7 +59,7 @@ class Main extends Component {
     fetch(url)
       .then(response => response.json())
       .then(response => {
-        console.log(response);
+        console.log(response)
         this.setState({
           keywordsArray: response,
           responseReceivedFromApi: true
@@ -85,6 +86,32 @@ class Main extends Component {
   }
 
   render() {
+
+    this.state.keywordsArray.forEach(word => {
+        this.state.simpleKeywordsArray.push(word.name)
+    })
+
+    if (!this.state.simpleKeywordsArray.includes("Active")) {
+        this.state.keywordsArray.push({"name": "Active", "type": "support-status"}) 
+    }
+    if (!this.state.simpleKeywordsArray.includes("Inactive")) {
+        this.state.keywordsArray.push({"name": "Inactive", "type": "support-status"})
+    }
+    if (!this.state.simpleKeywordsArray.includes("Discontinued")) {
+        this.state.keywordsArray.push({"name": "Discontinued", "type": "support-status"})
+    }
+
+
+    if (!this.state.simpleKeywordsArray.includes("Client Side")) {
+        this.state.keywordsArray.push({"name": "Client Side", "type": "application-type"}) 
+    }
+    if (!this.state.simpleKeywordsArray.includes("Server Side")) {
+        this.state.keywordsArray.push({"name": "Server Side", "type": "application-type"})
+    }
+    if (!this.state.simpleKeywordsArray.includes("Unified")) {
+        this.state.keywordsArray.push({"name": "Unified", "type": "application-type"})
+    }
+
     let allKeywords = this.state.keywordsArray.map((keyword, i) => (
       <Keyword
         key={'keyword' + i}
@@ -95,6 +122,9 @@ class Main extends Component {
     ));
 
     //Define tag groups
+    let applicationTypes = allKeywords.filter(item => item.props.type === "application-type");
+    let supportStatus = allKeywords.filter(item => item.props.type === "support-status");
+
     let languages = allKeywords.filter(item => item.props.type === "language");
     let deployments = allKeywords.filter(item => item.props.type === "deployment");
     let libraries = allKeywords.filter(item => item.props.type === "library");
@@ -124,22 +154,22 @@ class Main extends Component {
                       Flags
                       <hr></hr>
                       {languages}
-                    </div>
+                    </div>*/}
 
                     <div className="mb-4">
                       Application Type
                       <hr></hr>
-                      {languages}
+                      {applicationTypes}
                     </div>
 
                     <div className="mb-4">
                       Support Status
                       <hr></hr>
-                      {languages}
-                    </div> */}
+                      {supportStatus}
+                    </div>
 
                     <div className="mb-4">
-                      Languages
+                      <span>Languages</span>
                       <hr></hr>
                       {languages}
                     </div>

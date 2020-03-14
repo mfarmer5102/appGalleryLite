@@ -28,8 +28,47 @@ class AppCard extends Component {
   }
 
   render() {
+
+    //Add to keywords array flag values
+
+    switch (this.props.data.supportStatus) {
+        case "active":
+            if (!this.props.data.keywords.includes('Active')) {
+                this.props.data.keywords.push('Active');
+            }
+            break
+        case "inactive":
+            if (!this.props.data.keywords.includes('Inactive')) {
+                this.props.data.keywords.push('Inactive') 
+            }
+            break;
+        case "discontinued":
+            if (!this.props.data.keywords.includes('Discontinued')) {
+                this.props.data.keywords.push('Discontinued')
+            }
+            break;
+    }
+
+    switch (this.props.data.applicationType) {
+        case "client-side":
+            if (!this.props.data.keywords.includes('Client Side')) {
+                this.props.data.keywords.push('Client Side')
+            }
+            break;
+        case "server-side":
+            if (!this.props.data.keywords.includes('Server Side')) {
+                this.props.data.keywords.push('Server Side')
+            }
+            break;
+        case "unified":
+            if (!this.props.data.keywords.includes('Unified')) {
+                this.props.data.keywords.push('Unified')
+            }
+            break;
+    }
+
     //Place a check mark if this app is actively supported
-    let activelySupportedIndicator = this.props.data.isActivelySupported ? (
+    let activelySupportedIndicator = this.props.data.supportStatus === "active" ? (
       <i title='Actively Supported' className="float-right fas fa-check-double fa-lg text-success p-1"></i>
     ) : (
       ""
@@ -46,6 +85,8 @@ class AppCard extends Component {
     ) : (
       ""
     );
+
+
     //Only show the 'Experience' option for deployed apps
     let deployedLink =
       this.props.data.deployedLink !== "" ? (
@@ -58,11 +99,13 @@ class AppCard extends Component {
       ) : (
         ""
       );
+
     //If app is deployed, thumbnail links to experience; otherwise, link to GitHub repo
     let thumbnailLink =
       this.props.data.deployedLink !== ""
         ? this.props.data.deployedLink
         : this.props.data.githubLink;
+
     //Render as follows
     return (
       <div
