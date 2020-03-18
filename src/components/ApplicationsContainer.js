@@ -9,10 +9,6 @@ class ApplicationsContainer extends Component {
     };
   }
 
-  // componentDidUpdate() {
-  //   this.handleSearch();
-  // }
-
   componentDidMount() {
     this.handleSearch();
   }
@@ -23,7 +19,6 @@ class ApplicationsContainer extends Component {
     fetch(url)
       .then(response => response.json())
       .then(response => {
-        console.log(response)
         this.setState({
           databaseRecords: response
         });
@@ -36,7 +31,6 @@ class ApplicationsContainer extends Component {
     var allItems = this.state.databaseRecords;
     var activeKeywords = this.props.activeKeywords;
     var activeProperties = this.props.activeProperties;
-    console.log('activeProperties', activeProperties)
 
     var queriedApps = allItems.filter(function(item) {
       let litmus = true;
@@ -52,38 +46,6 @@ class ApplicationsContainer extends Component {
           litmus = false;
         }
       }
-
-    //   if (activeProperties.applicationType) {
-    //     console.log(item.applicationType === activeProperties.applicationType)
-    //     if (item.applicationType === activeProperties.applicationType) {
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-
-    //     if (activeProperties.supportStatus) {
-    //         console.log(item.supportStatus === activeProperties.supportStatus)
-    //         if (item.supportStatus === activeProperties.supportStatus) {
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-
-    //     if (activeProperties.isCollaboration) {
-    //         console.log(item.isCollaboration === activeProperties.isCollaboration)
-    //         if (item.isCollaboration === activeProperties.isCollaboration) {
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-
-    //     if (activeProperties.isFeatured) {
-    //         console.log(item.isFeatured === activeProperties.isFeatured)
-    //         if (item.isFeatured === activeProperties.isFeatured) {
-    //         } else {
-    //             return false;
-    //         }
-    //     }
       return litmus;
     });
 

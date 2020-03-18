@@ -69,18 +69,14 @@ class Main extends Component {
 
   pullInKeywordName(arg) {
     var activeKeywords = this.state.activeKeywords;
-    console.log(activeKeywords);
     var isAlreadyInArray = activeKeywords.includes(arg);
-    console.log(isAlreadyInArray);
     if (isAlreadyInArray) {
       let updatedArray = activeKeywords.filter(item => {
         return item !== arg;
       });
-      console.log(updatedArray);
       this.setState({ activeKeywords: updatedArray });
     } else {
       let updatedArray = activeKeywords.concat(arg);
-      console.log(updatedArray);
       this.setState({ activeKeywords: updatedArray });
     }
   }
