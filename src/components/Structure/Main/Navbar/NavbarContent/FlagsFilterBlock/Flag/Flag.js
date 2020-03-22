@@ -7,23 +7,22 @@ const style = {
     }
 }
 
+const defaultFlags = ['Active', 'Featured'];
+
 class Flag extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            isSelected: false
+            isSelected: (defaultFlags.includes(this.props.name) ? true : false)
         };
     }
 
     componentDidMount = () => {
-        this.setDefaultFlagSelections();
+        this.props.updateSelectedFlags(defaultFlags)
     }
 
     toggleFlagSelection = () => {
-        if (this.props.name === 'Active' || this.props.name === 'Featured') {
-            alert(this.state.isSelected)
-        }
         if (this.state.isSelected) {
             this.setState({
                 isSelected: false
@@ -37,15 +36,6 @@ class Flag extends Component {
             }, function() {
                 this.props.updateSelectedFlags(this.props.name);
             })
-        }
-    }
-
-    setDefaultFlagSelections = () => {
-        if (this.props.name === 'Active') {
-            this.toggleFlagSelection();
-        }
-        if (this.props.name === 'Featured') {
-            this.toggleFlagSelection();
         }
     }
 

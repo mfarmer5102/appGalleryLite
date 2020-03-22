@@ -9,7 +9,7 @@ class FlagsFilterBlock extends Component {
         this.state = {
         };
     }
-
+    
     render() {
 
          let flagsArray = this.props.items.map((item, i) => {

@@ -63,20 +63,26 @@ class Main extends Component {
     }
 
     updateSelectedFlags = (flag) => {
-        if (flag === 'Active' || flag === 'Featured') {
-            alert(flag)
-        }
         let selectedFlags = this.state.selectedFlags;
-        let isAlreadyInArray = selectedFlags.includes(flag);
-        if (isAlreadyInArray) {
-            let updatedArray = selectedFlags.filter(item => {
-                return item !== flag;
-            });
+        if (typeof flag === 'array') {
+            // Drop old flags
+                // No current implementation of dropping flags via array
+            // Add new flags
+            let updatedArray = selectedFlags.concat(flag);
             this.setState({ selectedFlags: updatedArray });
         } 
         else {
-            let updatedArray = selectedFlags.concat(flag);
-            this.setState({ selectedFlags: updatedArray });
+            let isAlreadyInArray = selectedFlags.includes(flag);
+            if (isAlreadyInArray) {
+                let updatedArray = selectedFlags.filter(item => {
+                    return item !== flag;
+                });
+                this.setState({ selectedFlags: updatedArray });
+            } 
+            else {
+                let updatedArray = selectedFlags.concat(flag);
+                this.setState({ selectedFlags: updatedArray });
+            }
         }
     }
 
