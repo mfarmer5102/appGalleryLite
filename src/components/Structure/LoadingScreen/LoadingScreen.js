@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-let style = {
+const style = {
     LoadingScreenMajor: {
         position: 'fixed',
         top: '0px',

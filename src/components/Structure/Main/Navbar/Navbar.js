@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Banner from "./Banner/Banner";
 import NavbarContent from "./NavbarContent/NavbarContent";
 
-let style = {
+const style = {
     Navbar: {
         padding: "0px",
         overflow: "scroll",
@@ -23,7 +23,11 @@ class Navbar extends Component {
     return (
         <div className='col-md-3 bg-light text-dark shadow' style={style.Navbar}> 
             <Banner/>
-            <NavbarContent/>
+            <NavbarContent
+                allKeywords={this.props.allKeywords}
+                updateSelectedKeywords={this.props.updateSelectedKeywords}
+                updateSelectedFlags={this.props.updateSelectedFlags}
+            />
         </div>
     )
     

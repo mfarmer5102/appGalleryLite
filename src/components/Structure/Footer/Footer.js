@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-let style = {
+const style = {
     Footer: {
         height: '30px',
         width: '100vw',
@@ -23,8 +23,8 @@ class Footer extends Component {
 
     render() {
         return (
-            <div className='bg-light shadow' style={style.Footer}>
-                Footer
+            <div className='bg-secondary shadow' style={style.Footer}>
+                Showing X of {this.props.allApplicationsCount} items
             </div>
         )  
     }

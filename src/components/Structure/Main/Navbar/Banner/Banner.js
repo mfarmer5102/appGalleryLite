@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import BannerImage from "./banner.jpg";
 
-let style = {
+const style = {
     Banner: {
         width: '100%'
     }

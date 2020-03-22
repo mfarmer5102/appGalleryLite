@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-let style = {
+const style = {
     AppThumbnail: {
         height: "200px",
         maxWidth: "100%"

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import ContentBuffer from "./ContentBuffer/ContentBuffer";
+import CardDeck from "./CardDeck/CardDeck";
 
-let style = {
+const style = {
     Content: {
         overflow: "scroll",
         maxHeight: "100vh"
@@ -20,7 +20,11 @@ class Content extends Component {
     render() {
         return (
             <div className="col-md-9 col-sm-12 p-3" style={style.Content}>
-                <ContentBuffer/>
+                <CardDeck
+                    allApplications={this.props.allApplications}
+                    selectedKeywords={this.props.selectedKeywords}
+                    selectedFlags={this.props.selectedFlags}
+                />
             </div>
         )  
     }
