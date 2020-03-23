@@ -21,7 +21,7 @@ class Navbar extends Component {
   render() {
 
     return (
-        <div className='col-md-3 bg-light text-dark shadow' style={style.Navbar}> 
+        <div className='col-xl-2 col-lg-3 col-md-4 col-sm-6 bg-light text-dark shadow' style={style.Navbar}> 
             <Banner/>
             <NavbarContent
                 allKeywords={this.props.allKeywords}
