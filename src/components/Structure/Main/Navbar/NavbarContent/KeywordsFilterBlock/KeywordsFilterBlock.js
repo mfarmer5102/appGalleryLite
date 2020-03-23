@@ -21,6 +21,7 @@ class KeywordsFilterBlock extends Component {
                         key={'keyword' + i} 
                         data={item}
                         updateSelectedKeywords={this.props.updateSelectedKeywords}
+                        selectedKeywords={this.props.selectedKeywords}
                     />
                 )
             }

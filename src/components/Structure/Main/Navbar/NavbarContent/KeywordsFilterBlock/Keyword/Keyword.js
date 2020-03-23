@@ -12,7 +12,7 @@ class Keyword extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isSelected: false
+            isSelected: this.props.selectedKeywords.includes(this.props.data.name)
         };
     }
 

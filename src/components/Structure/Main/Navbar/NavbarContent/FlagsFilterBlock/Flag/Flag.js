@@ -7,19 +7,13 @@ const style = {
     }
 }
 
-const defaultFlags = ['Active', 'Featured'];
-
 class Flag extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            isSelected: (defaultFlags.includes(this.props.name) ? true : false)
+            isSelected: this.props.selectedFlags.includes(this.props.name)
         };
-    }
-
-    componentDidMount = () => {
-        this.props.updateSelectedFlags(defaultFlags)
     }
 
     toggleFlagSelection = () => {
@@ -40,7 +34,7 @@ class Flag extends Component {
     }
 
     render = () => {
-        let checkIcon = this.state.isSelected ? "far fa-check-square" : "far fa-square";
+        let checkIcon = this.props.selectedFlags.includes(this.props.name) ? "far fa-check-square" : "far fa-square";
         return (
             <div 
                 style={style.Flag} 

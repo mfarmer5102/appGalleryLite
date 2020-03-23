@@ -18,6 +18,7 @@ class FlagsFilterBlock extends Component {
                     key={'flag' + i}
                     name={item}
                     updateSelectedFlags={this.props.updateSelectedFlags}
+                    selectedFlags={this.props.selectedFlags}
                 />
              )
         });

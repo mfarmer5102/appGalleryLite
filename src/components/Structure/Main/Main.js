@@ -16,7 +16,7 @@ class Main extends Component {
             allApplications: [],
             allKeywords: [],
             selectedKeywords: [],
-            selectedFlags: []
+            selectedFlags: ['Active', 'Featured']
         };
     }
 
@@ -91,6 +91,13 @@ class Main extends Component {
         }
     }
 
+    clearAllFilters = () => {
+        this.setState({ 
+            selectedKeywords: [],
+            selectedFlags: []
+        })
+    }
+
     render = () => {
         return (
             <div className='row' style={style.Main}>
@@ -98,6 +105,9 @@ class Main extends Component {
                     allKeywords={this.state.allKeywords}
                     updateSelectedKeywords={this.updateSelectedKeywords}
                     updateSelectedFlags={this.updateSelectedFlags}
+                    clearAllFilters={this.clearAllFilters}
+                    selectedKeywords={this.state.selectedKeywords}
+                    selectedFlags={this.state.selectedFlags}
                 />
                 <Content
                     allApplications={this.state.allApplications}
