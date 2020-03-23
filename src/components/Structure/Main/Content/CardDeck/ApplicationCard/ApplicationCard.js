@@ -31,8 +31,7 @@ class ApplicationCard extends Component {
 
     render() {
 
-        //Define experience link
-        let experienceLink = (this.props.data.deployedLink && this.props.data.supportStatus) !== 'discontinued' ? this.props.data.deployedLink : null;
+        let isAbleToBeExperienced = this.props.data.deployedLink && this.props.data.supportStatus !== 'discontinued';
 
         //Define indicator icons
         let featuredIndicator = this.props.data.isFeatured ? (<i title='Featured' className="float-right fas fa-star fa-lg text-warning p-1"></i>) : ("");
@@ -58,18 +57,18 @@ class ApplicationCard extends Component {
                     {/* Body */}
                     <a 
                         target="_blank" 
-                        href={experienceLink} 
+                        href={isAbleToBeExperienced ? this.props.data.deployedLink : this.props.data.githubLink} 
                         className='d-flex justify-content-center bg-light'>
-                            <img src={this.props && this.props.data ? this.props.data.imagePath : null} style={style.AppThumbnail} />
+                            <img src={this.props.data.imagePath} style={style.AppThumbnail} />
                     </a>
 
                     {/* Footer */}
                     <div className="card-footer text-right">
-                        <a target="_blank" href={this.props && this.props.data ? experienceLink : null}>
-                            <small>Experience</small>
+                        <a target="_blank" href={this.props.data.deployedLink}>
+                            <small>{isAbleToBeExperienced ? 'Experience' : ''}</small>
                         </a>
-                        <span className='pl-2 pr-2'>{experienceLink ? '|' : ''}</span>
-                        <a target="_blank" href={this.props && this.props.data ? this.props.data.githubLink : null}>
+                        <span className='pl-2 pr-2'>{isAbleToBeExperienced ? '|' : ''}</span>
+                        <a target="_blank" href={this.props.data.githubLink}>
                             <small>View Source</small>
                         </a>
                     </div>
