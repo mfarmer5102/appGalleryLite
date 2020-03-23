@@ -41,8 +41,8 @@ class Keyword extends Component {
                 onClick={this.toggleKeywordSelection}
             >
                 <span className='badge text-left'>
-                    <i class={checkIcon}></i>
-                    <span class='pl-2'>{this.props.data.name}</span>
+                    <i className={checkIcon}></i>
+                    <span className='pl-2'>{this.props.data.name}</span>
                 </span>
             </div>
         );

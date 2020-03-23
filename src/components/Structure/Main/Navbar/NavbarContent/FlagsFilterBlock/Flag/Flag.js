@@ -47,12 +47,11 @@ class Flag extends Component {
                 onClick={this.toggleFlagSelection}
             >
                 <span className='badge text-left'>
-                    <i class={checkIcon}></i>
-                    <span class='pl-2'>{this.props.name}</span>
+                    <i className={checkIcon}></i>
+                    <span className='pl-2'>{this.props.name}</span>
                 </span>
             </div>
         );
-
     }
 
 }

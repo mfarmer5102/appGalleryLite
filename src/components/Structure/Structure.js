@@ -32,14 +32,16 @@ class Structure extends Component {
 
     updateAllApplicationsCount = (int) => {
         this.setState({
-            allApplicationsCount: int
+            allApplicationsCount: int || 0
         })
     }
 
     render = () => {
         return (
             <div style={style.Structure}>
-                {/* <LoadingScreen/> */}
+                <LoadingScreen
+                    isVisible={this.state.isVisibleLoadingScreen}
+                />
                 <Main
                     removeLoadingScreen={this.removeLoadingScreen}
                     updateAllApplicationsCount={this.updateAllApplicationsCount}

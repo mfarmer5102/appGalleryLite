@@ -27,21 +27,26 @@ class LoadingScreen extends Component {
     }
 
     render() {
-        return (
-            <div style={style.LoadingScreenMajor}>
-                <section style={style.LoadingScreenMinor}>
-                    <div class='row'>
-                    <div id='pseudoCoverSpinnger' class="spinner-border text-primary" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                    </div>
-                    <br/>
-                    <div class='row text-center'>
-                    <div class='text-light'>Loading application gallery. This may take a few seconds.</div>
-                    </div>
-                </section>
-            </div>
-        )  
+        if (!this.props.isVisible) {
+            return null;
+        }
+        else {
+            return (
+                <div style={style.LoadingScreenMajor}>
+                    <section style={style.LoadingScreenMinor}>
+                        <div className='row'>
+                        <div id='pseudoCoverSpinnger' className="spinner-border text-primary" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                        </div>
+                        <br/>
+                        <div className='row text-center'>
+                        <div className='text-light'>Loading application gallery. This may take a few seconds.</div>
+                        </div>
+                    </section>
+                </div>
+            ) 
+        }
     }
 
 }

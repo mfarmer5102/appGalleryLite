@@ -80,13 +80,12 @@ class CardDeck extends Component {
     render() {
 
         let cardsArray = [];
+        let relevantApplicationsCount = 0;
 
         for (let i = 0; i < this.props.allApplications.length; i++) {
             var thisApp = this.props.allApplications[i];
-            if (
-                this.determineCardRelevanceKeywords(thisApp.keywords, this.props.selectedKeywords) &&
-                this.determineCardRelevanceFlags(thisApp, this.props.selectedFlags)
-                ) {
+            if (this.determineCardRelevanceKeywords(thisApp.keywords, this.props.selectedKeywords) && this.determineCardRelevanceFlags(thisApp, this.props.selectedFlags)) {
+                relevantApplicationsCount += 1;
                 cardsArray.push(
                     <ApplicationCard
                         data={this.props.allApplications[i]}
@@ -98,6 +97,8 @@ class CardDeck extends Component {
 
         return (
             <div className='container'>
+                <small>Showing {relevantApplicationsCount} of {this.props.allApplications.length} applications</small>
+                <hr/>
                 <div className='row'>
                     {cardsArray}
                 </div>

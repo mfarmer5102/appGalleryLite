@@ -9,7 +9,9 @@ const style = {
         left: '0px',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundImage: 'linear-gradient(#e0e0e0, #cfcfcf)',
+        fontWeight: '100'
     }
 }
 
@@ -23,9 +25,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <div className='bg-secondary shadow' style={style.Footer}>
-                Showing X of {this.props.allApplicationsCount} items
-            </div>
+            <div style={style.Footer}></div>
         )  
     }
 
