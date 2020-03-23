@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import ClearFiltersButton from "./ClearFiltersButton/ClearFiltersButton";
 import KeywordsFilterBlock from "./KeywordsFilterBlock/KeywordsFilterBlock";
 import FlagsFilterBlock from "./FlagsFilterBlock/FlagsFilterBlock";
 
@@ -37,13 +38,14 @@ class NavbarContent extends Component {
 
 
     render() {
-
+        
         let FlagsFilterBlocksArray = this.state.flagsSection.map((item, i) => (
             <FlagsFilterBlock
                 label={item.label}
                 items={item.items}
                 key={'FlagsFilterBlock' + i} 
                 updateSelectedFlags={this.props.updateSelectedFlags}
+                selectedFlags={this.props.selectedFlags}
             />
         ));
 
@@ -54,11 +56,17 @@ class NavbarContent extends Component {
                 key={'KeywordsFilterBlock' + i} 
                 allKeywords={this.props.allKeywords}
                 updateSelectedKeywords={this.props.updateSelectedKeywords}
+                selectedKeywords={this.props.selectedKeywords}
             />
         ));
 
         return (
             <div className='p-4 mb-5'>
+                <ClearFiltersButton
+                    clearAllFilters={this.props.clearAllFilters}
+                    selectedKeywords={this.props.selectedKeywords}
+                    selectedFlags={this.props.selectedFlags}
+                />
                 {FlagsFilterBlocksArray}
                 {KeywordsFilterBlocksArray}
             </div>

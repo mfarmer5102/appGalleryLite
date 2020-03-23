@@ -27,6 +27,9 @@ class Navbar extends Component {
                 allKeywords={this.props.allKeywords}
                 updateSelectedKeywords={this.props.updateSelectedKeywords}
                 updateSelectedFlags={this.props.updateSelectedFlags}
+                clearAllFilters={this.props.clearAllFilters}
+                selectedKeywords={this.props.selectedKeywords}
+                selectedFlags={this.props.selectedFlags}
             />
         </div>
     )
