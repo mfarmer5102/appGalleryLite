@@ -1,5 +1,6 @@
 {
   "name": "appgallerylite",
+  "productName": "App Gallery Lite",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://cafeamericano.github.io/appGalleryLite/",
@@ -13,13 +14,52 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0"
   },
+  "main": "Main.js",
   "scripts": {
     "start": "react-scripts start",
+    "start-electron": "electron .",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "install-app-deps",
+    "start-electron-build": "npm install && electron ./app",
+    "pack": "build --dir",
+    "dist": "build",
+    "build-osx": "electron-packager ./ AppGalleryLite --platform=darwin --icon=/Users/matthew-dev/Desktop/icon.icns --overwrite",
+    "build-windows": "electron-packager ./ AppGalleryLite --platform=win32 --icon=/Users/matthew-dev/Desktop/icon.ico --overwrite"
+  },
+  "build": {
+    "mac": {
+        "target": "dmg",
+        "icon": "build/icon.png"
+    },
+    "productName": "App Gallery Lite",
+    "icon": "build/icon.png",
+    "appId": "yourappid",
+    "files": [
+        "/*",
+        "build/icon.png"
+    ],
+    "category": "your.app.category.type",
+    "directories": {
+      "output": "build"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +75,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^8.1.1",
+    "electron-builder": "^22.4.1",
+    "electron-packager": "^14.2.1"
   }
 }
