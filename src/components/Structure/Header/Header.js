@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 
 const style = {
-    Footer: {
+    Header: {
         height: '30px',
         width: '100%',
         position: 'fixed',
-        bottom: '0px',
+        top: '0px',
         left: '0px',
         display: 'flex',
-        justifyContent: 'left',
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundImage: 'linear-gradient(#e0e0e0, #cfcfcf)',
-        padding: '10px'
+        fontWeight: '100'
     }
 }
 
-class Footer extends Component {
+class Header extends Component {
 
     constructor(props) {
         super(props);
@@ -25,11 +25,10 @@ class Footer extends Component {
 
     render() {
         return (
-            <div style={style.Footer}>
-            </div>
+            <div style={style.Header}></div>
         )  
     }
 
 }
 
-export default Footer;
+export default Header;

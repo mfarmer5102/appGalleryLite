@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import LoadingScreen from "./LoadingScreen/LoadingScreen";
+import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Main from "./Main/Main"
 
@@ -10,7 +11,9 @@ const style = {
         backgroundSize: "cover",
         backgroundRepeat: "repeat",
         backgroundAttachment: "fixed",
-        minHeight: "100%"
+        minHeight: "100%",
+        padding: '0px',
+        overflow: 'hidden'
     }
 };
 
@@ -38,10 +41,11 @@ class Structure extends Component {
 
     render = () => {
         return (
-            <div style={style.Structure}>
+            <div className='container-fluid' style={style.Structure}>
                 <LoadingScreen
                     isVisible={this.state.isVisibleLoadingScreen}
                 />
+                <Header/>
                 <Main
                     removeLoadingScreen={this.removeLoadingScreen}
                     updateAllApplicationsCount={this.updateAllApplicationsCount}

@@ -15,6 +15,11 @@ const style = {
     },
     LoadingScreenMinor: {
         opacity: '1'
+    },
+    Spinner: {
+        width: '3rem',
+        height: '3rem',
+        margin: 'auto'
     }
 }
 
@@ -35,7 +40,7 @@ class LoadingScreen extends Component {
                 <div style={style.LoadingScreenMajor}>
                     <section style={style.LoadingScreenMinor}>
                         <div className='row'>
-                        <div id='pseudoCoverSpinnger' className="spinner-border text-primary" role="status">
+                        <div className="spinner-border text-primary" style={style.Spinner} role="status">
                             <span className="sr-only">Loading...</span>
                         </div>
                         </div>

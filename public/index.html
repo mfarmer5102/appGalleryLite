@@ -43,9 +43,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- {{!-- jQuery --}} -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <!-- {{!-- Animate CSS --}} -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css"
@@ -60,61 +57,25 @@
 
     <!-- Custom Styles -->
     <style>
-      html {
-        height: 100%;
-      }
+        html, body, #root {
+            height: 100% !important;
+        }
 
-      body {
-        height: 100% !important;
-      }
+        .badge-pill {
+            cursor: pointer;
+        }
 
-      #root {
-        height: 100% !important;
-      }
+        a {
+            cursor: pointer;
+        }
 
-      .badge-pill {
-        cursor: pointer;
-      }
+        
 
-      a {
-        cursor: pointer;
-      }
-
-      .position-fixed {
-        position: fixed;
-      }
-
-      .opacity-1 {
-        opacity: 1;
-      }
-      
-      #pseudoCover {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.671);
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center
-      }
-
-      #pseudoCoverSpinnger {
-        width: 3rem; 
-        height: 3rem; 
-        margin: auto
-      }
-
-      .full-height {
-        height: 100vh
-      }
     </style>
   </head>
 
   <body class="bg-light" style="font-family: Roboto">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" style='overflow: hidden'></div>
   </body>
 </html>

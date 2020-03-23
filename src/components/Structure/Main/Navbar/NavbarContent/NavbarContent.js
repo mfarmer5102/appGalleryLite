@@ -58,7 +58,7 @@ class NavbarContent extends Component {
         ));
 
         return (
-            <div className='p-4'>
+            <div className='p-4 mb-5'>
                 {FlagsFilterBlocksArray}
                 {KeywordsFilterBlocksArray}
             </div>

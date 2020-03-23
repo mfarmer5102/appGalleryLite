@@ -19,7 +19,7 @@ class Content extends Component {
 
     render() {
         return (
-            <div className="col-md-9 col-sm-12 p-3" style={style.Content}>
+            <div className="col-md-9 col-sm-12 p-4" style={style.Content}>
                 <CardDeck
                     allApplications={this.props.allApplications}
                     selectedKeywords={this.props.selectedKeywords}

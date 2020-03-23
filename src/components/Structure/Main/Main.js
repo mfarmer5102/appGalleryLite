@@ -3,6 +3,11 @@ import React, { Component } from "react";
 import Content from "./Content/Content";
 import Navbar from "./Navbar/Navbar"
 
+const style = {
+    Main: {
+        margin: '30px 0px'
+    }
+}
 class Main extends Component {
 
     constructor(props) {
@@ -88,19 +93,17 @@ class Main extends Component {
 
     render = () => {
         return (
-            <div className='container-fluid full-height'>
-                <div className='row full-height'>
-                    <Navbar 
-                        allKeywords={this.state.allKeywords}
-                        updateSelectedKeywords={this.updateSelectedKeywords}
-                        updateSelectedFlags={this.updateSelectedFlags}
-                    />
-                    <Content
-                        allApplications={this.state.allApplications}
-                        selectedKeywords={this.state.selectedKeywords}
-                        selectedFlags={this.state.selectedFlags}
-                    />
-                </div>
+            <div className='row' style={style.Main}>
+                <Navbar 
+                    allKeywords={this.state.allKeywords}
+                    updateSelectedKeywords={this.updateSelectedKeywords}
+                    updateSelectedFlags={this.updateSelectedFlags}
+                />
+                <Content
+                    allApplications={this.state.allApplications}
+                    selectedKeywords={this.state.selectedKeywords}
+                    selectedFlags={this.state.selectedFlags}
+                />
             </div>
         )  
     }

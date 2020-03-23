@@ -96,7 +96,7 @@ class CardDeck extends Component {
         }
 
         return (
-            <div className='container'>
+            <div className='container mb-5'>
                 <small>Showing {relevantApplicationsCount} of {this.props.allApplications.length} applications</small>
                 <hr/>
                 <div className='row'>
