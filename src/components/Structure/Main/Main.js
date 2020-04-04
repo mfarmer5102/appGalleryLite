@@ -26,7 +26,7 @@ class Main extends Component {
     }
 
     fetchApplicationsData = () => {
-        let url = 'https://central-api-go.appspot.com' + "/AppGalleryLite/api/applications";
+        let url = 'https://central-api-flask-cm6ud432ka-uc.a.run.app' + "/AppGalleryLite/api/applications";
         fetch(url)
             .then(response => response.json())
             .then(response => {
@@ -40,7 +40,7 @@ class Main extends Component {
     }
 
     fetchKeywordsData = () => {
-        let url = 'https://central-api-go.appspot.com' + "/AppGalleryLite/api/keywords";
+        let url = 'https://central-api-flask-cm6ud432ka-uc.a.run.app' + "/AppGalleryLite/api/keywords";
         fetch(url)
             .then(response => response.json())
             .then(response => {
