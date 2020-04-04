@@ -34,8 +34,18 @@ class ApplicationCard extends Component {
         let isAbleToBeExperienced = this.props.data.deployedLink && this.props.data.supportStatus !== 'discontinued';
 
         //Define indicator icons
+
         let featuredIndicator = this.props.data.isFeatured ? (<i title='Featured' className="float-right fas fa-star fa-lg text-warning p-1"></i>) : ("");
         let collaborationIndicator = this.props.data.isCollaboration ? (<i title='Collaboration' className="float-right fas fa-users fa-lg text-secondary p-1"></i>) : ("");
+        
+        let reactIndicator = this.props.data.keywords.includes('React') ? (<i title='React' className="float-right fab fa-react fa-lg text-primary p-1"></i>) : ("");
+        let angularIndicator = this.props.data.keywords.includes('Angular') ? (<i title='Angular' className="float-right fab fa-angular fa-lg text-danger p-1"></i>) : ("");
+        let vueIndicator = this.props.data.keywords.includes('Vue') ? (<i title='Vue' className="float-right fab fa-vuejs fa-lg text-success p-1"></i>) : ("");
+        
+        let nodeIndicator = this.props.data.keywords.includes('Node') ? (<i title='Node' className="float-right fab fa-node fa-lg text-secondary p-1"></i>) : ("");
+        let javascriptIndicator = this.props.data.keywords.includes('JavaScript') ? (<i title='Javascript' className="float-right fab fa-js fa-lg text-warning p-1"></i>) : ("");
+        let pythonIndicator = this.props.data.keywords.includes('Python') ? (<i title='Python' className="float-right fab fa-python fa-lg text-info p-1"></i>) : ("");
+        let golangIndicator = this.props.data.keywords.includes('Go') ? (<i title='Go' className="float-right fa-lg text-primary p-1"><strong>GO</strong></i>) : ("");
 
         return (
             <div
@@ -50,8 +60,19 @@ class ApplicationCard extends Component {
                         <h5 className="float-left">
                             {this.props && this.props.data ? this.props.data.title : null}
                         </h5>
+
                         {featuredIndicator}
                         {collaborationIndicator}
+
+                        {reactIndicator}
+                        {angularIndicator}
+                        {vueIndicator}
+
+                        {nodeIndicator}
+                        {javascriptIndicator}
+                        {pythonIndicator}
+                        {golangIndicator}
+
                     </div>
 
                     {/* Body */}
