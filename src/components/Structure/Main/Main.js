@@ -5,7 +5,7 @@ import Navbar from "./Navbar/Navbar"
 
 const style = {
     Main: {
-        margin: '30px 0px'
+        // margin: '30px 0px'
     }
 }
 class Main extends Component {
@@ -44,7 +44,6 @@ class Main extends Component {
         fetch(url)
             .then(response => response.json())
             .then(response => {
-                this.props.removeLoadingScreen();
                 this.setState({
                     allKeywords: response
                 }

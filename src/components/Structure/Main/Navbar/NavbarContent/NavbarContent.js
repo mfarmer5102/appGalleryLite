@@ -61,7 +61,7 @@ class NavbarContent extends Component {
         ));
 
         return (
-            <div className='p-4 mb-5'>
+            <div className='p-4'>
                 <ClearFiltersButton
                     clearAllFilters={this.props.clearAllFilters}
                     selectedKeywords={this.props.selectedKeywords}

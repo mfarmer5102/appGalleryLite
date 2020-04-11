@@ -45,14 +45,14 @@ class Structure extends Component {
                 <LoadingScreen
                     isVisible={this.state.isVisibleLoadingScreen}
                 />
-                <Header/>
+                {/* <Header/> */}
                 <Main
                     removeLoadingScreen={this.removeLoadingScreen}
                     updateAllApplicationsCount={this.updateAllApplicationsCount}
                 />
-                <Footer
+                {/* <Footer
                     allApplicationsCount={this.state.allApplicationsCount}
-                />
+                /> */}
             </div>
         )  
     }
