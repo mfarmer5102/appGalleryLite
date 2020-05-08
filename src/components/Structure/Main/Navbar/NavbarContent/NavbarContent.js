@@ -12,24 +12,24 @@ class NavbarContent extends Component {
             flagsSection: [
                 {
                     label: 'General Filters', 
-                    items: ['Featured', 'Collaboration', 'Independently Created']
+                    items: ['Featured' /*, 'Collaboration', 'Independently Created' */]
                 },
-                {
-                    label: 'Support Status',
-                    items: ['Active', 'Inactive', 'Discontinued']
-                },
-                {  
-                    label: 'Architecture',
-                    items: ['Client-Side', 'Server-Side', 'Unified']
-                }
+                // {
+                //     label: 'Support Status',
+                //     items: ['Active', 'Inactive', 'Discontinued']
+                // },
+                // {  
+                //     label: 'Architecture',
+                //     items: ['Client-Side', 'Server-Side', 'Unified']
+                // }
             ],
             keywordsSection: [
                 {label: 'Languages', type: 'language'},
+                {label: 'Front-End Frameworks', type: 'front-end-framework'},
+                {label: 'Back-End Frameworks', type: 'back-end-framework'},
+                {label: 'Databases', type: 'database'},
                 {label: 'Libraries', type: 'library'},
                 {label: 'Deployments', type: 'deployment'},
-                {label: 'Back-End Frameworks', type: 'back-end-framework'},
-                {label: 'Front-End Frameworks', type: 'front-end-framework'},
-                {label: 'Databases', type: 'database'},
                 {label: 'ORMs', type: 'orm'},
                 {label: 'Other', type: 'other'}
             ]
