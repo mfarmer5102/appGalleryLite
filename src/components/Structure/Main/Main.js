@@ -16,7 +16,7 @@ class Main extends Component {
             allApplications: [],
             allKeywords: [],
             selectedKeywords: [],
-            selectedFlags: ['Active', 'Featured']
+            selectedFlags: ['Featured']
         };
     }
 

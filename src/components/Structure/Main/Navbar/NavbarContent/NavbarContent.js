@@ -13,7 +13,7 @@ class NavbarContent extends Component {
                 {
                     label: 'General Filters', 
                     items: ['Featured' /*, 'Collaboration', 'Independently Created' */]
-                },
+                }
                 // {
                 //     label: 'Support Status',
                 //     items: ['Active', 'Inactive', 'Discontinued']

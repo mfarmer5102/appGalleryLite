@@ -16,6 +16,7 @@
   },
   "main": "Main.js",
   "scripts": {
+    "dev": "react-scripts start",
     "start": "react-scripts start",
     "start-electron": "electron .",
     "build": "react-scripts build",

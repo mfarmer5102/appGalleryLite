@@ -2,6 +2,12 @@ import React, { Component } from "react";
 
 import ApplicationCard from "./ApplicationCard/ApplicationCard";
 
+let style = {
+    subMessage: {
+        "fontSize": "14px"
+    }
+}
+
 class CardDeck extends Component {
 
     constructor(props) {
@@ -126,12 +132,28 @@ class CardDeck extends Component {
                 <div className='text-right'><small>Showing {relevantApplicationsCount} of {this.props.allApplications.length} applications</small></div>
                 <br/>
                 <div className='row'>
-                    <div className='col-12 mt-3'><h5>Actively Supported</h5><hr/></div>
+
+                    {/* Actively Supported Apps */}
+                    <div className='col-12 mt-3'>
+                        <span><h5>Actively Supported</h5></span>
+                        <i style={style.subMessage}>These apps are maintained on a regular basis or have been created recently.</i><hr/>
+                    </div>
                     {cardsArrayActive.length ? cardsArrayActive : <small className='pl-3 mb-3'>No actively supported apps meet the provided filter criteria.</small>}
-                    <div className='col-12 mt-3'><h5>Inactively Supported</h5><hr/></div>
+                    
+                    {/* Inactively Supported Apps */}
+                    <div className='col-12 mt-3'>
+                        <span><h5>Inactively Supported</h5></span>
+                        <i style={style.subMessage}>These apps are no longer regularly maintained but still worth checking out.</i><hr/>
+                    </div>
                     {cardsArrayInactive.length ? cardsArrayInactive : <small className='pl-3 mb-3'>No inactively supported apps meet the provided filter criteria.</small>}
-                    <div className='col-12 mt-3'><h5>Discontinued Apps</h5><hr/></div>
+                    
+                    {/* Discontinued Apps */}
+                    <div className='col-12 mt-3'>
+                        <span><h5>Discontinued</h5></span>
+                        <i style={style.subMessage}>These apps may no longer function and/or contain inferior quality code.</i><hr/>
+                    </div>
                     {cardsArrayDiscontinued.length ? cardsArrayDiscontinued : <small className='pl-3 mb-3'>No discontinued apps meet the provided filter criteria.</small>}
+                
                 </div>
             </div>
         )  
