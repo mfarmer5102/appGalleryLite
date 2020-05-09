@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { isDOMComponent } from "react-dom/test-utils";
 
 const style = {
     AppThumbnail: {
@@ -31,7 +32,8 @@ class ApplicationCard extends Component {
 
     render() {
 
-        let isAbleToBeExperienced = (this.props.data.frontendLink || this.props.data.deployedLink) && this.props.data.supportStatus !== 'discontinued';
+        let isDiscontinued = this.props.data.supportStatus == 'discontinued';
+        let isAbleToBeExperienced = (this.props.data.frontendLink || this.props.data.deployedLink) && !isDiscontinued;
 
         //Define indicator icons
 
@@ -50,8 +52,8 @@ class ApplicationCard extends Component {
         return (
             <div
             className={this.state.activeClass}
-            onMouseEnter={this.activateHover}
-            onMouseLeave={this.deactivateHover}
+            onMouseEnter={isDiscontinued ? null : this.activateHover}
+            onMouseLeave={isDiscontinued ? null : this.deactivateHover}
             style={{opacity: this.props.opacity || 1.0}}
             >
                 <div className="card shadow mb-3">
@@ -79,7 +81,7 @@ class ApplicationCard extends Component {
                     {/* Body */}
                     <a 
                         target="_blank" 
-                        href={isAbleToBeExperienced ? (this.props.data.frontendLink || this.props.data.deployedLink) : this.props.data.githubLink} 
+                        href={isDiscontinued ? null : isAbleToBeExperienced ? (this.props.data.frontendLink || this.props.data.deployedLink) : this.props.data.githubLink} 
                         className='d-flex justify-content-center bg-light'>
                             <img src={this.props.data.imagePath} style={style.AppThumbnail} />
                     </a>
