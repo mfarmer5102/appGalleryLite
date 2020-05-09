@@ -88,17 +88,22 @@ class ApplicationCard extends Component {
 
                     {/* Footer */}
                     <div className="card-footer text-right">
+
+                        {/* Experience Link */}
                         <a target="_blank" href={this.props.data.frontendLink || this.props.data.deployedLink}>
                             <small>{isAbleToBeExperienced && this.props.data.frontendLink ? 'Experience' : ''}</small>
                         </a>
-                        <span className='pl-4'></span>
+                        
+                        {/* UI Source Link */}
                         <a target="_blank" href={this.props.data.frontendRepoLink || this.props.data.githubLink}>
-                            <small>{isAbleToBeExperienced && this.props.data.frontendRepoLink && !this.props.data.isPrivateRepo ? 'UI Source' : ''}</small>
+                            <small>{isAbleToBeExperienced && this.props.data.frontendRepoLink && !this.props.data.isPrivateRepo ? <span className='pl-4'>UI Source</span> : ''}</small>
                         </a>
-                        <span className='pl-4'></span>
+
+                        {/* API Source Link */}
                         <a target="_blank" href={this.props.data.backendRepoLink || this.props.data.githubLink}>
-                            <small>{isAbleToBeExperienced && this.props.data.backendRepoLink && !this.props.data.isPrivateRepo ? 'API Source' : ''}</small>
+                            <small>{isAbleToBeExperienced && this.props.data.backendRepoLink && !this.props.data.isPrivateRepo ? <span className='pl-4'>API Source</span> : ''}</small>
                         </a>
+                        
                     </div>
 
                 </div>

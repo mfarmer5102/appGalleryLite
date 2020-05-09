@@ -6,6 +6,7 @@ import NavbarContent from "./NavbarContent/NavbarContent";
 const style = {
     Navbar: {
         padding: "0px",
+        width: "250px",
         overflow: "scroll",
         maxHeight: "100vh"
     }
@@ -21,7 +22,7 @@ class Navbar extends Component {
   render() {
 
     return (
-        <div className='col-xl-2 col-lg-3 col-md-4 col-sm-6 bg-light text-dark shadow' style={style.Navbar}> 
+        <div className='bg-light text-dark shadow' style={style.Navbar}> 
             <Banner/>
             <NavbarContent
                 allKeywords={this.props.allKeywords}

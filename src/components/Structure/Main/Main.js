@@ -16,7 +16,7 @@ class Main extends Component {
             allApplications: [],
             allKeywords: [],
             selectedKeywords: [],
-            selectedFlags: ['Featured']
+            selectedFlags: [/*'Featured'*/]
         };
     }
 
@@ -46,7 +46,7 @@ class Main extends Component {
             .then(response => {
                 // this.props.removeLoadingScreen();
                 this.setState({
-                    allKeywords: response
+                    allKeywords: response.filter(item => item.showInGallery)
                 }
             );
         });
