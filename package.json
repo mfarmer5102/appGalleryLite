@@ -16,6 +16,7 @@
   },
   "main": "Main.js",
   "scripts": {
+    "dev": "react-scripts start",
     "start": "react-scripts start",
     "start-electron": "electron .",
     "build": "react-scripts build",
@@ -32,15 +33,15 @@
   },
   "build": {
     "mac": {
-        "target": "dmg",
-        "icon": "build/icon.png"
+      "target": "dmg",
+      "icon": "build/icon.png"
     },
     "productName": "App Gallery Lite",
     "icon": "build/icon.png",
     "appId": "yourappid",
     "files": [
-        "/*",
-        "build/icon.png"
+      "/*",
+      "build/icon.png"
     ],
     "category": "your.app.category.type",
     "directories": {

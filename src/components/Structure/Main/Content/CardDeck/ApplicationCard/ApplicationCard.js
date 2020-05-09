@@ -31,7 +31,7 @@ class ApplicationCard extends Component {
 
     render() {
 
-        let isAbleToBeExperienced = this.props.data.deployedLink && this.props.data.supportStatus !== 'discontinued';
+        let isAbleToBeExperienced = (this.props.data.frontendLink || this.props.data.deployedLink) && this.props.data.supportStatus !== 'discontinued';
 
         //Define indicator icons
 
@@ -52,6 +52,7 @@ class ApplicationCard extends Component {
             className={this.state.activeClass}
             onMouseEnter={this.activateHover}
             onMouseLeave={this.deactivateHover}
+            style={{opacity: this.props.opacity || 1.0}}
             >
                 <div className="card shadow mb-3">
 
@@ -78,19 +79,23 @@ class ApplicationCard extends Component {
                     {/* Body */}
                     <a 
                         target="_blank" 
-                        href={isAbleToBeExperienced ? this.props.data.deployedLink : this.props.data.githubLink} 
+                        href={isAbleToBeExperienced ? (this.props.data.frontendLink || this.props.data.deployedLink) : this.props.data.githubLink} 
                         className='d-flex justify-content-center bg-light'>
                             <img src={this.props.data.imagePath} style={style.AppThumbnail} />
                     </a>
 
                     {/* Footer */}
                     <div className="card-footer text-right">
-                        <a target="_blank" href={this.props.data.deployedLink}>
-                            <small>{isAbleToBeExperienced ? 'Experience' : ''}</small>
+                        <a target="_blank" href={this.props.data.frontendLink || this.props.data.deployedLink}>
+                            <small>{isAbleToBeExperienced && this.props.data.frontendLink ? 'Experience' : ''}</small>
                         </a>
-                        <span className='pl-2 pr-2'>{isAbleToBeExperienced ? '|' : ''}</span>
-                        <a target="_blank" href={this.props.data.githubLink}>
-                            <small>View Source</small>
+                        <span className='pl-4'></span>
+                        <a target="_blank" href={this.props.data.frontendRepoLink || this.props.data.githubLink}>
+                            <small>{isAbleToBeExperienced && this.props.data.frontendRepoLink && !this.props.data.isPrivateRepo ? 'UI Source' : ''}</small>
+                        </a>
+                        <span className='pl-4'></span>
+                        <a target="_blank" href={this.props.data.backendRepoLink || this.props.data.githubLink}>
+                            <small>{isAbleToBeExperienced && this.props.data.backendRepoLink && !this.props.data.isPrivateRepo ? 'API Source' : ''}</small>
                         </a>
                     </div>
 

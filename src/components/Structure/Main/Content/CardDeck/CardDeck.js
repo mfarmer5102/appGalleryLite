@@ -2,6 +2,12 @@ import React, { Component } from "react";
 
 import ApplicationCard from "./ApplicationCard/ApplicationCard";
 
+let style = {
+    subMessage: {
+        "fontSize": "14px"
+    }
+}
+
 class CardDeck extends Component {
 
     constructor(props) {
@@ -79,28 +85,75 @@ class CardDeck extends Component {
 
     render() {
 
-        let cardsArray = [];
+        let cardsArrayActive = [];
+        let cardsArrayInactive = [];
+        let cardsArrayDiscontinued = [];
+
         let relevantApplicationsCount = 0;
 
         for (let i = 0; i < this.props.allApplications.length; i++) {
             var thisApp = this.props.allApplications[i];
             if (this.determineCardRelevanceKeywords(thisApp.keywords, this.props.selectedKeywords) && this.determineCardRelevanceFlags(thisApp, this.props.selectedFlags)) {
                 relevantApplicationsCount += 1;
-                cardsArray.push(
-                    <ApplicationCard
-                        data={this.props.allApplications[i]}
-                        key={'app' + i} 
-                    />
-                )
+
+                switch (thisApp.supportStatus) {
+                    case 'active':
+                        cardsArrayActive.push(
+                            <ApplicationCard
+                                data={this.props.allApplications[i]}
+                                key={'app' + i} 
+                            />
+                        )
+                        break;
+                    case 'inactive':
+                        cardsArrayInactive.push(
+                            <ApplicationCard
+                                data={this.props.allApplications[i]}
+                                key={'app' + i} 
+                            />
+                        )
+                        break;
+                    case 'discontinued':
+                        cardsArrayDiscontinued.push(
+                            <ApplicationCard
+                                data={this.props.allApplications[i]}
+                                key={'app' + i}
+                                opacity={0.45}
+                            />
+                        )
+                        break;
+                }
+
             }
         }
 
         return (
             <div className='container mb-5'>
-                <small>Showing {relevantApplicationsCount} of {this.props.allApplications.length} applications</small>
-                <hr/>
+                <div className='text-right'><small>Showing {relevantApplicationsCount} of {this.props.allApplications.length} applications</small></div>
+                <br/>
                 <div className='row'>
-                    {cardsArray}
+
+                    {/* Actively Supported Apps */}
+                    <div className='col-12 mt-3'>
+                        <span><h5>Actively Supported</h5></span>
+                        <i style={style.subMessage}>These apps are maintained on a regular basis or have been created recently.</i><hr/>
+                    </div>
+                    {cardsArrayActive.length ? cardsArrayActive : <small className='pl-3 mb-3'>No actively supported apps meet the provided filter criteria.</small>}
+                    
+                    {/* Inactively Supported Apps */}
+                    <div className='col-12 mt-3'>
+                        <span><h5>Inactively Supported</h5></span>
+                        <i style={style.subMessage}>These apps are no longer regularly maintained but still worth checking out.</i><hr/>
+                    </div>
+                    {cardsArrayInactive.length ? cardsArrayInactive : <small className='pl-3 mb-3'>No inactively supported apps meet the provided filter criteria.</small>}
+                    
+                    {/* Discontinued Apps */}
+                    <div className='col-12 mt-3'>
+                        <span><h5>Discontinued</h5></span>
+                        <i style={style.subMessage}>These apps may no longer function and/or contain inferior quality code.</i><hr/>
+                    </div>
+                    {cardsArrayDiscontinued.length ? cardsArrayDiscontinued : <small className='pl-3 mb-3'>No discontinued apps meet the provided filter criteria.</small>}
+                
                 </div>
             </div>
         )  

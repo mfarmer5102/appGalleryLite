@@ -34,7 +34,7 @@ class Keyword extends Component {
     }
 
     render = () => {
-        let checkIcon = this.state.isSelected ? "far fa-check-square" : "far fa-square";
+        let checkIcon = this.props.selectedKeywords.includes(this.props.data.name) ? "far fa-check-square" : "far fa-square";
         return (
             <div 
                 style={style.Keyword} 
